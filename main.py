@@ -68,10 +68,6 @@ async def run_sendtoken(language: str):
     from scripts.sendtoken import run_sendtoken as sendtoken_run
     await sendtoken_run(language)
 
-async def run_deploynft(language: str):
-    from scripts.deploynft import run_deploynft as deploynft_run
-    await deploynft_run(language)
-
 async def run_nftcollection(language: str):
     from scripts.nftcollection import run_nftcollection as nftcollection_run
     await nftcollection_run(language)
@@ -91,7 +87,6 @@ SCRIPT_MAP = {
     "sendtx": run_sendtx,
     "deploytoken": run_deploytoken,
     "sendtoken": run_sendtoken,
-    "deploynft": run_deploynft,
     "nftcollection": run_nftcollection,
     "wrap": run_wrap,
     "exit": cmd_exit
@@ -109,7 +104,7 @@ def get_available_scripts(language):
             {"name": "6. Deploy Token smart-contract | Kasplex Testnet", "value": "deploytoken"},
             {"name": "7. Send Token ERC20 ngẫu nhiên hoặc File (addressERC20.txt) | Kasplex Testnet", "value": "sendtoken"},
 
-            {"name": "9. Exit", "value": "exit"},
+            {"name": "8. Exit", "value": "exit"},
             
         ],
         'en': [
@@ -122,7 +117,7 @@ def get_available_scripts(language):
             {"name": "6. Deploy Token smart-contract | Kasplex Testnet", "value": "deploytoken"},
             {"name": "7. Send Token ERC20 Random or File (addressERC20.txt) | Kasplex Testnet", "value": "sendtoken"},
 
-            {"name": "23. Exit", "value": "exit"},
+            {"name": "8. Exit", "value": "exit"},
         ]
     }
     return scripts[language]
