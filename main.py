@@ -76,6 +76,10 @@ async def run_wrap(language: str):
     from scripts.wrap import run_wrap as wrap_run
     await wrap_run(language)
 
+async def run_swap(language: str):
+    from scripts.swap import run_swap as swap_run
+    await swap_run(language)
+
 async def cmd_exit(language: str):
     print_border(f"Exiting...", Fore.GREEN)
     sys.exit(0)
@@ -89,6 +93,7 @@ SCRIPT_MAP = {
     "sendtoken": run_sendtoken,
     "nftcollection": run_nftcollection,
     "wrap": run_wrap,
+    "swap": run_swap,
     "exit": cmd_exit
 }
 
@@ -98,26 +103,28 @@ def get_available_scripts(language):
             {"name": "1. Faucet token $KAS | Kasplex Testnet", "value": "faucetkas", "locked": True},
             {"name": "2. Faucet tokens [ZEAL, NACHO, KANGO, KASPER, KASPY, BURT, KREX, GHOAD] -> Zealous Swap │ Kasplex Testnet", "value": "faucettokens", "locked": True},
             {"name": "3. Wrap/Unwrap [ KAS  ←→ WKAS ] -> Zealous Swap | Kasplex Testnet", "value": "wrap", "locked": False},
+            {"name": "4. Swap tokens [WKAS, ZEAL, NACHO, KANGO, KASPER, KASPY, BURT, KREX, GHOAD] -> Zealous Swap │ Kasplex Testnet", "value": "swap", "locked": True},
 
-            {"name": "4. Deploy NFT - Quản lý bộ sưu tập NFT [ Tạo | Mint | Đốt ] | Kasplex Testnet", "value": "nftcollection"},
-            {"name": "5. Send TX ngẫu nhiên hoặc File (address.txt) | Kasplex Testnet", "value": "sendtx"},
-            {"name": "6. Deploy Token smart-contract | Kasplex Testnet", "value": "deploytoken"},
-            {"name": "7. Send Token ERC20 ngẫu nhiên hoặc File (addressERC20.txt) | Kasplex Testnet", "value": "sendtoken"},
+            {"name": "5. Deploy NFT - Quản lý bộ sưu tập NFT [ Tạo | Mint | Đốt ] | Kasplex Testnet", "value": "nftcollection"},
+            {"name": "6. Send TX ngẫu nhiên hoặc File (address.txt) | Kasplex Testnet", "value": "sendtx"},
+            {"name": "7. Deploy Token smart-contract | Kasplex Testnet", "value": "deploytoken"},
+            {"name": "8. Send Token ERC20 ngẫu nhiên hoặc File (addressERC20.txt) | Kasplex Testnet", "value": "sendtoken"},
 
-            {"name": "8. Exit", "value": "exit"},
+            {"name": "9. Exit", "value": "exit"},
             
         ],
         'en': [
             {"name": "1. Faucet token $KAS | Kasplex Testnet", "value": "faucetkas", "locked": True},
             {"name": "2. Faucet tokens [ZEAL, NACHO, KANGO, KASPER, KASPY, BURT, KREX, GHOAD] -> Zealous Swap │ Kasplex Testnet", "value": "faucettokens", "locked": True},
             {"name": "3. Wrap/Unwrap [ KAS  ←→ WKAS ] -> Zealous Swap | Kasplex Testnet", "value": "wrap", "locked": False},
-            
-            {"name": "4. Deploy NFT - Manage NFT Collection [ Create | Mint | Burn ] | Kasplex Testnet", "value": "nftcollection"},
-            {"name": "5. Send Random TX or File (address.txt) | Kasplex Testnet", "value": "sendtx"},
-            {"name": "6. Deploy Token smart-contract | Kasplex Testnet", "value": "deploytoken"},
-            {"name": "7. Send Token ERC20 Random or File (addressERC20.txt) | Kasplex Testnet", "value": "sendtoken"},
+            {"name": "4. Swap tokens [WKAS, ZEAL, NACHO, KANGO, KASPER, KASPY, BURT, KREX, GHOAD] -> Zealous Swap │ Kasplex Testnet", "value": "swap", "locked": True},
 
-            {"name": "8. Exit", "value": "exit"},
+            {"name": "5. Deploy NFT - Manage NFT Collection [ Create | Mint | Burn ] | Kasplex Testnet", "value": "nftcollection"},
+            {"name": "6. Send Random TX or File (address.txt) | Kasplex Testnet", "value": "sendtx"},
+            {"name": "7. Deploy Token smart-contract | Kasplex Testnet", "value": "deploytoken"},
+            {"name": "8. Send Token ERC20 Random or File (addressERC20.txt) | Kasplex Testnet", "value": "sendtoken"},
+
+            {"name": "9. Exit", "value": "exit"},
         ]
     }
     return scripts[language]
